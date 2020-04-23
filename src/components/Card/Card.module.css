@@ -1,0 +1,21 @@
+.container {
+ display: flex;
+ margin: 0vh 2vh;
+ flex-direction: column;
+}
+
+.card {
+ position: relative;
+ width: 250px;
+ height: 110px;
+}
+:global(.MuiCard-root) {
+ overflow: inherit !important;
+}
+.paper {
+ position: absolute;
+ width: 50px;
+ height: 50px;
+ top: 25%;
+ right: -20px;
+}

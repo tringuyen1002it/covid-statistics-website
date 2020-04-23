@@ -3,12 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import rootSaga from './sagas'
+import rootReducer from './reducers'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import { getAPICorona } from './actions'
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+const sagaMiddleware = createSagaMiddleware();
 
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)))
+
+sagaMiddleware.run(rootSaga)
+
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark'
+  }
+})
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </Provider>, document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

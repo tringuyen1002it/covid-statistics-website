@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.module.css';
+import { Chart, InformationCard, City } from './components/index'
+import styles from './App.module.css'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { requestDataCovid } from './actions/index'
+import { bindActionCreators } from "redux";
+import { Typography } from '@material-ui/core';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  componentDidMount() {
+    this.props.requestDataCovid()
+  }
+  render() {
+    const { data } = this.props
+    console.log("App -> render -> data", data)
+    return (
+      <div className={styles.container}>
+        <Typography variant="h2" align="center" style={{ color: 'white' }}> Covid-19 -- nmtdev -- </Typography> <br />
+        <InformationCard data={data} />
+        <Chart />
+        <City />
+      </div>
+
+    )
+  }
 }
 
-export default App;
+const mapStateToProps = state => ({ data: state.data.dataCorona });
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ requestDataCovid }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
+
