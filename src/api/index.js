@@ -1,23 +1,36 @@
-import axios from 'axios'
+// import axios from 'axios'
 
-// const axios = require('axios')
-
+const axios = require('axios')
 const url = 'https://covid19.mathdro.id/api'
-
-export const fetchData = async () => {
+const urlCountries = 'https://covid19.mathdro.id/api/countries'
+const fetchAPI = async () => {
     try {
         const response = await axios.get(url)
-        const { data: { confirmed, deaths, recovered } } = response
+        // console.log("fetchData -> response", response)
+        const { data: { confirmed, deaths, recovered, lastUpdate } } = response
         // const { confirmed, deaths, recovered } = data
         const newData = {
             confirmed,
             deaths,
-            recovered
+            recovered,
+            lastUpdate
         }
-        console.log("fetchData -> newData", newData)
         // return newData
         return newData
     } catch (error) {
         console.log(error)
     }
 }
+const fetchAPIDataCountries = async () => {
+    try {
+        const response = await axios.get(urlCountries)
+        const nameCountries = response.data.countries.map(item => item.name)
+        return nameCountries
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+
+module.exports = { fetchAPI, fetchAPIDataCountries }

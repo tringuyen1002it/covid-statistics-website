@@ -9,19 +9,11 @@ import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
 import rootReducer from './reducers'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { getAPICorona } from './actions'
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)))
-
 sagaMiddleware.run(rootSaga)
 
-const theme = createMuiTheme({
-  palette: {
-    type: 'dark'
-  }
-})
 ReactDOM.render(
   <Provider store={store}>
     <App />
