@@ -1,16 +1,53 @@
-.container {
+/* .container {
  display: flex;
  margin: 0vh 2vh;
  flex-direction: column;
+ align-items: center;
+} */
+.table {
+ display: flex;
+ /* margin: 2vh 2vh; */
+ margin-top: 2vh;
+ flex-direction: column;
+ justify-items: stretch;
+ margin-left: 13.5%;
+ margin-right: 19%;
 }
-
 .card {
  position: relative;
- width: 250px;
+ width: 300px;
  height: 110px;
+}
+:global(.MuiSvgIcon-root) {
+ color: white;
+}
+/* MUIDataTableHeadCell-toolButton-330 */
+:global(.MUIDataTableHeadCell) {
+ background-color: black;
 }
 :global(.MuiCard-root) {
  overflow: inherit !important;
+}
+:global(.MuiInputBase-input) {
+ color: white !important;
+}
+:global(.MUIDataTableSearch-searchIcon-417) {
+ color: white !important;
+}
+
+/* :global(.MuiPaper-root) {
+ margin-right: 20px !important;
+} */
+@media only screen and (max-width: 768px) {
+ .table {
+  display: flex;
+  /* margin: 2vh 2vh; */
+  margin-top: 2vh;
+  flex-direction: column;
+  justify-items: stretch;
+  margin-left: 1px;
+  margin-right: 1px;
+ }
 }
 .paper {
  position: absolute;

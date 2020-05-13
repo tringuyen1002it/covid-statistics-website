@@ -9,14 +9,29 @@ import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
 import rootReducer from './reducers'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import {
+  BrowserRouter
+} from "react-router-dom";
+
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)))
+// const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)))
+const composeEnhancers = composeWithDevTools({
+  // Specify name here, actionsBlacklist, actionsCreators and other options if needed
+});
+const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
+  applyMiddleware(sagaMiddleware),
+  // other store enhancers if any
+));
 sagaMiddleware.run(rootSaga)
+
+
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>, document.getElementById('root')
 );
 

@@ -4,4 +4,7 @@ body {
 
 .container {
  margin-top: 2vh;
+ display: flex;
+ /* align-items: center; */
+ flex-direction: column;
 }

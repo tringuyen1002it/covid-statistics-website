@@ -12,15 +12,7 @@ function* fetchAPICovid(action) {
         console.log(e)
     }
 }
-// function* fetchAPIContries(action) {
-//     try {
-//         const data = yield call(fetchAPIDataCountries)
-//         yield put(receiveDataCountries(data))
-//     } catch (e) {
-//         console.log(e)
-//     }
-// }
-function* fetchAPICountry(action) {
+function* fetchAPICountries(action) {
     try {
         const data = yield call(fetchAPIDataCountries)
         yield put(receiveDataCountries(data));
@@ -28,7 +20,10 @@ function* fetchAPICountry(action) {
         console.log(e)
     }
 }
+
+
+
 export default function* rootSaga() {
-    yield all([takeLatest(REQUEST_DATA_COVID, fetchAPICovid), yield takeLatest(REQUEST_DATA_COUNTRIES, fetchAPICountry)])
-    // yield takeLatest(REQUEST_DATA_COUNTRY_COVID, fetchAPICountry)
+    yield all([takeLatest(REQUEST_DATA_COVID, fetchAPICovid), yield takeLatest(REQUEST_DATA_COUNTRIES, fetchAPICountries)])
 }
+
