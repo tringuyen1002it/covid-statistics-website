@@ -6,6 +6,7 @@ import NotFoundView from '../components/NotFoundView';
 import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom';
 import { Main as MainLayout, Minimal as MinimalLayout } from '../layouts';
 import { RouteWithLayout } from './RouteWithLayout';
+
 const Routes = () => {
  return (
   <Switch>
@@ -15,6 +16,7 @@ const Routes = () => {
    <RouteWithLayout component={Dashboard} layout={MainLayout} path="/card" />
    <RouteWithLayout component={Chart} layout={MainLayout} path="/chart" />
    <RouteWithLayout component={NotFoundView} layout={MainLayout} path="/not-found" />
+   {/* <RouteWithLayout component={InformationCard} layout={MainLayout} path="/card2" /> */}
    {/* <Route component={Chart} path="/chart" layout={MainLayout} /> */}
    {/* <Route component={NotFoundView} path="/not-found" /> */}
    {/* <Redirect to="/not-found" /> */}

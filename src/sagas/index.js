@@ -1,8 +1,8 @@
 import { call, put, takeLatest, all } from "redux-saga/effects";
 
-import { REQUEST_DATA_COVID, receiveDataCovid, receiveDataCountries, REQUEST_DATA_COUNTRIES } from "../actions/index";
+import { REQUEST_DATA_COVID, receiveDataCovid, receiveDataCountry, REQUEST_DATA_COUNTRY, REQUEST_DATA_COUNTRIES, receiveDataCountries } from "../actions/index";
 
-import { fetchAPI, fetchAPIDataCountries } from '../api/index'
+import { fetchAPI, fetchAPIDataCountryCovid, fetchDataAPICountriesCovid } from '../api/index'
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function* fetchAPICovid(action) {
     try {
@@ -12,18 +12,27 @@ function* fetchAPICovid(action) {
         console.log(e)
     }
 }
-function* fetchAPICountries(action) {
+function* fetchAPICountry(action) {
     try {
-        const data = yield call(fetchAPIDataCountries)
-        yield put(receiveDataCountries(data));
+        const data = yield call(fetchAPIDataCountryCovid, action.payload)
+        yield put(receiveDataCountry(data));
     } catch (e) {
         console.log(e)
     }
 }
 
+function* fetchAPICountries(action) {
+    try {
+        const data = yield call(fetchDataAPICountriesCovid)
+        yield put(receiveDataCountry(data))
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 export default function* rootSaga() {
-    yield all([takeLatest(REQUEST_DATA_COVID, fetchAPICovid), yield takeLatest(REQUEST_DATA_COUNTRIES, fetchAPICountries)])
+    yield all([takeLatest(REQUEST_DATA_COVID, fetchAPICovid), yield takeLatest(REQUEST_DATA_COUNTRY, fetchAPICountry), takeLatest(REQUEST_DATA_COUNTRIES, fetchAPICountries)])
 }
 
+// yield takeLatest(REQUEST_DATA_COUNTRIES,  )

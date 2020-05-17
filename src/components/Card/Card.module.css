@@ -19,7 +19,7 @@
  height: 110px;
 }
 :global(.MuiSvgIcon-root) {
- color: white;
+ color: black;
 }
 /* MUIDataTableHeadCell-toolButton-330 */
 :global(.MUIDataTableHeadCell) {
@@ -29,10 +29,10 @@
  overflow: inherit !important;
 }
 :global(.MuiInputBase-input) {
- color: white !important;
+ color: black !important;
 }
 :global(.MUIDataTableSearch-searchIcon-417) {
- color: white !important;
+ color: black !important;
 }
 
 /* :global(.MuiPaper-root) {

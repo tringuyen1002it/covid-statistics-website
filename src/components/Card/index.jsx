@@ -6,7 +6,7 @@ import MUIDataTable from 'mui-datatables';
 import { connect } from 'react-redux';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import { bindActionCreators } from 'redux';
-import { requestDataCovid, requestDataCountries } from '../../actions/index';
+import { requestDataCovid, requestDataCountry } from '../../actions/index';
 import { Skeleton } from '@material-ui/lab';
 import { Link } from 'react-router-dom';
 const getMuiTheme = () =>
@@ -111,7 +111,7 @@ class InformationCard extends React.Component {
  componentDidMount() {
   console.log('InformationCard -> componentWillMount -> componentWillMount');
   this.props.requestDataCovid();
-  this.props.requestDataCountries();
+  this.props.requestDataCountry();
  }
 
  render() {
@@ -169,5 +169,5 @@ class InformationCard extends React.Component {
 }
 
 const mapStateToProps = (state) => ({ dataCorona: state.data.dataCorona, dataTable: state.data.dataCountries });
-const mapDispatchToProps = (dispatch) => bindActionCreators({ requestDataCovid, requestDataCountries }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ requestDataCovid, requestDataCountry }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(InformationCard);

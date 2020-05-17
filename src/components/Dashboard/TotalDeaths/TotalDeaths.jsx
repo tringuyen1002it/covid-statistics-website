@@ -56,7 +56,7 @@ const TotalDeaths = (props) => {
     <Grid container justify="space-between">
      <Grid item>
       <Typography className={classes.title} color="textSecondary" gutterBottom variant="body1">
-       TOTAL CONFIRMED
+       TOTAL DEATHS
       </Typography>
       <Typography variant="h4" className={classes.number}>
        1,600
