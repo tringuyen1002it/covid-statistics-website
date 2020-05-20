@@ -55,6 +55,7 @@ export const fetchAPIDataCountryCovid = async (country) => {
 export const fetchDataAPICountriesCovid = async () => {
     try {
         const response = await axios.get(url)
+
         console.log("fetchData -> response", response)
         const { data: { confirmed, deaths, recovered, lastUpdate } } = response
         const newData = {

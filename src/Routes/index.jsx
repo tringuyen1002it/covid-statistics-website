@@ -1,5 +1,5 @@
 import React from 'react';
-import Chart from '../components/Chart';
+import Chart from '../components/Dashboard/Chart';
 import InformationCard from '../components/Card';
 import Dashboard from '../components/Dashboard';
 import NotFoundView from '../components/NotFoundView';
@@ -11,15 +11,9 @@ const Routes = () => {
  return (
   <Switch>
    <Redirect exact from="/" to="/card" />
-   {/* <Route component={Dashboard} path="/card" RouteWithLayout  /> */}
-
    <RouteWithLayout component={Dashboard} layout={MainLayout} path="/card" />
    <RouteWithLayout component={Chart} layout={MainLayout} path="/chart" />
    <RouteWithLayout component={NotFoundView} layout={MainLayout} path="/not-found" />
-   {/* <RouteWithLayout component={InformationCard} layout={MainLayout} path="/card2" /> */}
-   {/* <Route component={Chart} path="/chart" layout={MainLayout} /> */}
-   {/* <Route component={NotFoundView} path="/not-found" /> */}
-   {/* <Redirect to="/not-found" /> */}
   </Switch>
  );
 };

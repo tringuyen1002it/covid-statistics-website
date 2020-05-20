@@ -4,9 +4,10 @@ import { fetchCountries } from '../../../api';
 import TextField from '@material-ui/core/TextField';
 import { fetchAPIDataCountries } from '../../../api';
 import { requestDataCountry } from '../../../actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 const CountryPicker = () => {
  const [country, setCountry] = useState([]);
+
  useEffect(() => {
   const fetchAPI = async () => {
    let dataCountry = await fetchAPIDataCountries();
@@ -14,7 +15,6 @@ const CountryPicker = () => {
   };
   fetchAPI();
  }, []);
-
  const dispatch = useDispatch();
 
  return (

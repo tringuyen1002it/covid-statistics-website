@@ -3,8 +3,9 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { Card, CardContent, Grid, Typography, Avatar } from '@material-ui/core';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import PeopleIcon from '@material-ui/icons/PeopleOutlined';
+import { Accessibility } from '@material-ui/icons';
+import CountUp from 'react-countup';
 
 const useStyles = makeStyles((theme) => ({
  root: {
@@ -17,10 +18,10 @@ const useStyles = makeStyles((theme) => ({
  },
  title: {
   fontWeight: 500,
-  color: 'white',
+  color: '#439be2',
  },
  avatar: {
-  backgroundColor: theme.palette.success.main,
+  backgroundColor: '#439be2',
   height: 56,
   width: 56,
  },
@@ -41,17 +42,17 @@ const useStyles = makeStyles((theme) => ({
   marginRight: theme.spacing(1),
  },
  number: {
-  color: 'white',
+  color: '#439be2',
  },
 }));
 
 const TotalRecovered = (props) => {
- const { className, ...rest } = props;
+ const { className, recovered, lastUpdate } = props;
 
  const classes = useStyles();
 
  return (
-  <Card {...rest} className={clsx(classes.root, className)}>
+  <Card className={clsx(classes.root, className)}>
    <CardContent>
     <Grid container justify="space-between">
      <Grid item>
@@ -59,12 +60,12 @@ const TotalRecovered = (props) => {
        TOTAL RECOVERED
       </Typography>
       <Typography variant="h4" className={classes.number}>
-       1,600
+       <CountUp start={0} end={recovered} duration={2} separator="," />
       </Typography>
      </Grid>
      <Grid item>
       <Avatar className={classes.avatar}>
-       <PeopleIcon className={classes.icon} />
+       <Accessibility className={classes.icon} />
       </Avatar>
      </Grid>
     </Grid>
