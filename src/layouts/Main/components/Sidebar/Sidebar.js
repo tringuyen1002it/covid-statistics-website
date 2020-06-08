@@ -11,11 +11,12 @@ const useStyles = makeStyles(theme => ({
     width: 240,
     [theme.breakpoints.up('lg')]: {
       marginTop: 64,
-      height: 'calc(100% - 64px)'
-    }
+      height: 'calc(100% - 64px)',
+    },
   },
   root: {
-    backgroundColor: '#1C1C1D',
+    backgroundColor: 'white',
+
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
@@ -25,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2, 0)
   },
   nav: {
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   }
 }));
 
@@ -40,11 +41,11 @@ const Sidebar = props => {
       href: '/card',
       icon: <DashboardIcon />
     },
-    {
-      title: 'Chart',
-      href: '/chart',
-      icon: <PeopleIcon />
-    }
+    // {
+    //   title: 'Chart',
+    //   href: '/chart',
+    //   icon: <PeopleIcon />
+    // }
   ];
 
   return (

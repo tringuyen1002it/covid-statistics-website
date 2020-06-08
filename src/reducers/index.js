@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { RECEIVE_DATA_COVID, RECEIVE_DATA_COUNTRY } from '../actions/index'
+import { RECEIVE_DATA_COVID, RECEIVE_DATA_COUNTRY, RECEIVE_DATA_COVID_MAP } from '../actions/index'
 import _ from 'lodash'
 
 
@@ -9,6 +9,8 @@ const saveDataCorona = (state = {}, action) => {
             return { ...state, dataCorona: action.payload }
         case RECEIVE_DATA_COUNTRY:
             return { ...state, dataCountries: action.payload }
+        case RECEIVE_DATA_COVID_MAP:
+            return { ...state, dataMap: action.payload.data }
         default:
             return state
     }

@@ -32,10 +32,10 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1)
   },
   active: {
-    color: '#8ABFEB',
+    color: 'black',
     fontWeight: 22,
     '& $icon': {
-      color: '#8ABFEB'
+      color: 'black'
     }
   }
 }));

@@ -12,7 +12,7 @@ const Routes = () => {
   <Switch>
    <Redirect exact from="/" to="/card" />
    <RouteWithLayout component={Dashboard} layout={MainLayout} path="/card" />
-   <RouteWithLayout component={Chart} layout={MainLayout} path="/chart" />
+   {/* <RouteWithLayout component={Chart} layout={MainLayout} path="/chart" /> */}
    <RouteWithLayout component={NotFoundView} layout={MainLayout} path="/not-found" />
   </Switch>
  );

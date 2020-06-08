@@ -9,11 +9,9 @@ const useStyles = makeStyles({
 });
 
 const Chart = (props) => {
- console.log('Chart -> props', props);
  const {
   dataChart: { confirmed, recovered, deaths },
  } = props;
- console.log('Chart -> confirmed', confirmed);
  const classes = useStyles();
  return (
   <Bar
@@ -21,18 +19,16 @@ const Chart = (props) => {
     labels: ['Confirmed', 'Recovered', 'Deaths'],
     datasets: [
      {
-      label: 'My First dataset',
-      backgroundColor: ['rgba(255,99,132,0.2)', '#36a2eb', '#cc65fe'],
+      label: 'Chart Corona-Virus',
+      backgroundColor: ['rgb(0, 176, 101)', 'rgb(67, 155, 226)', 'rgb(214, 49, 68)'],
       borderColor: 'rgba(255,99,132,1)',
       borderWidth: 1,
-      //   hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      //   hoverBorderColor: 'rgba(255,99,132,1)',
       data: [confirmed.value, recovered.value, deaths.value],
      },
     ],
    }}
-   width={300}
-   height={400}
+   width={250}
+   height={500}
    options={{
     maintainAspectRatio: false,
    }}

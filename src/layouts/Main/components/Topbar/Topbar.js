@@ -9,7 +9,8 @@ import InputIcon from '@material-ui/icons/Input';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    boxShadow: 'none'
+    boxShadow: 'none',
+    // backgroundColor: 'white',
   },
   flexGrow: {
     flexGrow: 1
@@ -31,14 +32,7 @@ const Topbar = props => {
       className={clsx(classes.root, className)}
     >
       <Toolbar>
-        <RouterLink to="/">
-          {/* <img
-            alt="Logo"
-            src="/images/logos/logo--white.svg"
-            
-          /> */}
-          ABC
-        </RouterLink>
+        PET PROJECT CORONA
         <Hidden lgUp>
           <IconButton
             color="inherit"
